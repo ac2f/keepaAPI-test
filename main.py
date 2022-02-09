@@ -54,9 +54,11 @@ class Keepa:
     def GetProductData(self, productId:str):
         return self.keepa._product_query();
 keepaCustom:Keepa = Keepa("https://api.keepa.com/query?key=8ha1s159q6svbqm9n2qd1toe9uhh3g4st0nl3vrhfs667rjhd6p779gp3hsqhcf5&domain=2&selection=%7B%2"+"2current_SALES_gte%2"+"2%3A1%2C%2"+"2current_SALES_lte%2"+"2%3A10000%2C%2"+"2rootCategory%"+"22%3A340831031%2C%2"+"2sort%"+"22%3A%5B%5B%"+"22current_SALES%"+"22%2C%"+"22asc%"+"22%5D%5D%2C%22productType%"+"22%3A%5B0%2C1%5D%2C%22perPage%"+"22%3A100%2C%22page%"+"22%3A0%7D", "8ha1s159q6svbqm9n2qd1toe9uhh3g4st0nl3vrhfs667rjhd6p779gp3hsqhcf5");
-keepaCustom.GetProducts(max = 100);
+keepaCustom.GetProducts(max = 10000);
 data = keepaCustom.GetProductsData();
-print(data[98].keys()); ## kullanılabilir anahtarlar
+for i in range(len(data)):
+
+    print(data[i]["title"]); ## kullanılabilir anahtarlar
 
 #dict_keys(['csv', 'categories', 'imagesCSV', 'manufacturer', 'title', 'lastUpdate', 'lastPriceChange', 'rootCategory', 'productType', 'parentAsin', 
 # 'variationCSV', 'asin', 'domainId', 'type', 'hasReviews', 'trackingSince', 'brand', 'productGroup', 'partNumber', 'model', 'color', 'size', 'edition', 
